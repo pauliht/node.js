@@ -69,10 +69,11 @@ app.get('/books/pages/from/:from/to/:to', (req, res) => {
 //filter title
 app.get('/books/title/:title', (req, res) => {
 	let chosen = books.filter((book) =>
-		book.title.toLowerCase() == req.params.title.toLowerCase()
+		book.title.toLowerCase().includes(req.params.title.toLowerCase()) 
 	);
 	res.json(chosen);
 });
+
 
 //filter year
 app.get('/books/year/:year', (req, res) => {
@@ -84,7 +85,7 @@ app.get('/books/year/:year', (req, res) => {
 
 //filter year from...
 app.get('/books/year/from/:from', (req, res) => {
-	let chosen = books.filter((book) => 
+	let chosen = books.filter((book) =>
 	 	book.year >= req.params.from / 1
 	);
 	res.json(chosen);
@@ -92,7 +93,7 @@ app.get('/books/year/from/:from', (req, res) => {
 
 //filter year to...
 app.get('/books/year/to/:to', (req, res) => {
-	let chosen = books.filter((book) => 
+	let chosen = books.filter((book) =>
 	 	book.year <= req.params.to / 1
 	);
 	res.json(chosen);
@@ -100,7 +101,7 @@ app.get('/books/year/to/:to', (req, res) => {
 
 // /books/year/from/:from/to/:to
 app.get('/books/year/from/:from/to/:to', (req, res) => {
-	let chosen = books.filter((book) => 
+	let chosen = books.filter((book) =>
 	 	book.year >= req.params.from / 1 &&
 	 	book.year <= req.params.to / 1
 	);
