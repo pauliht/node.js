@@ -7,7 +7,13 @@ const books = require('./books.json');
 //Creare Express server
 const app = express();
 
+app.get('/book/author/:author', (req, res) => {
+	let chosen = books.filter((book) =>
+		book.author.toLowerCase() == req.params.author.toLowerCase()
 
+	);
+	res.json(chosen);
+});
 
 
 
