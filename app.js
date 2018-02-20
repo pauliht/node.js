@@ -41,6 +41,30 @@ app.get('/books/pages/:pages', (req, res) => {
 	res.json(chosen);
 });
 
+//pages from
+app.get('/books/pages/from/:from', (req, res) => {
+	let chosen = books.filter((book) =>
+		book.pages >= req.params.from / 1
+		);
+	res.json(chosen);
+});
+
+//pages to
+app.get('/books/pages/to/:to', (req, res) => {
+	let chosen = books.filter((book) =>
+		book.pages <= req.params.to / 1
+		);
+	res.json(chosen);
+});
+
+//pages between...
+app.get('/books/pages/from/:from/to/:to', (req, res) => {
+	let chosen = books.filter((book) =>
+		book.pages >= req.params.from / 1 &&
+		book.pages <= req.params.to / 1
+		);
+	res.json(chosen);
+});
 
 //filter title
 app.get('/books/title/:title', (req, res) => {
@@ -66,8 +90,24 @@ app.get('/books/year/from/:from', (req, res) => {
 	res.json(chosen);
 });
 
+//filter year to...
+app.get('/books/year/to/:to', (req, res) => {
+	let chosen = books.filter((book) => 
+	 	book.year <= req.params.to / 1
+	);
+	res.json(chosen);
+});
 
 // /books/year/from/:from/to/:to
+app.get('/books/year/from/:from/to/:to', (req, res) => {
+	let chosen = books.filter((book) => 
+	 	book.year >= req.params.from / 1 &&
+	 	book.year <= req.params.to / 1
+	);
+	res.json(chosen);
+});
+
+
 
 //Respond to everything
 app.get('*', (req, res) => {
