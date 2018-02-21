@@ -108,11 +108,13 @@ app.get('/books/year/from/:from/to/:to', (req, res) => {
 	res.json(chosen);
 });
 
-
+app.use(express.static('www'));
 
 //Respond to everything
 app.get('*', (req, res) => {
-	res.send('Här är en boklista!');
+	// res.send('Här är en boklista!');
+	res.sendFile(__dirname + '/www/index.html');
+
 });
 
 app.listen(3000, () => {
