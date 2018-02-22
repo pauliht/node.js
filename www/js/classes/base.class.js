@@ -1,4 +1,4 @@
-module.exports = class Base {
+class Base {
 
   constructor(){
     if(!Base.subRenderCounter){

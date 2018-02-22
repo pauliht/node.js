@@ -69,7 +69,7 @@ app.get('/books/pages/from/:from/to/:to', (req, res) => {
 //filter title
 app.get('/books/title/:title', (req, res) => {
 	let chosen = books.filter((book) =>
-		book.title.toLowerCase().includes(req.params.title.toLowerCase()) 
+		book.title.toLowerCase().includes(req.params.title.toLowerCase())
 	);
 	res.json(chosen);
 });
