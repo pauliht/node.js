@@ -3,6 +3,7 @@ class Form extends Base{
 	constructor(){
 		super();
 		this.render('main .container');
+
 	}
 
 
@@ -16,7 +17,8 @@ class Form extends Base{
 				// render books
 
 				for (let book of books) {
-					$(.result).append(bookAuthor);
+					$('.result').append(book.author);
+					console.log(book);
 				}
 
 			}
