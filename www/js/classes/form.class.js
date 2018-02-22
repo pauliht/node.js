@@ -4,8 +4,9 @@ class Form extends Base{
 		super();
 		this.render('main .container');
 		this.clickBtnAuther();
+		this.clickBtnTitle();
 	}
-	
+
 
 	clickBtnAuther(){
 		$(document).on('click', '.btn', function(){
@@ -18,7 +19,6 @@ class Form extends Base{
 						// render books
 						for (let book of books) {
 							$('.result').append(`
-								<h1 class="text-center mb-3">Your book</h1>
 								<ul>
 									<li class="title">Title: ${book.title}</li>
 									<li class="title">Author: ${book.author}</li>
@@ -38,7 +38,7 @@ class Form extends Base{
 
 	clickBtnTitle(){
 		$(document).on('click', '.btn', function(){
-				let bookAuthor = $('#filter-title').val();
+				let bookTitle = $('#filter-title').val();
 				$.ajax({
 					type: 'GET',
 					url: `/books/title/${bookTitle}`,
@@ -47,7 +47,6 @@ class Form extends Base{
 						// render books
 						for (let book of books) {
 							$('.result').append(`
-								<h1 class="text-center mb-3">Your book</h1>
 								<ul>
 									<li class="title">Title: ${book.title}</li>
 									<li class="title">Author: ${book.author}</li>
@@ -67,4 +66,3 @@ class Form extends Base{
 
 
 }
-
