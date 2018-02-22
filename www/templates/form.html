@@ -2,7 +2,7 @@ Object.assign(Form.prototype, {template(){ return `
 
 
   <div class="row">
-    <div class="col-3">
+    <div class="col-4">
       <form>
         <div class="form-group mt-3">
           <label class="">Title</label>
@@ -38,6 +38,11 @@ Object.assign(Form.prototype, {template(){ return `
         </div>
         <button type="button" class="btn btn-dark">Submit</button>
       </form>
+    </div>
+    <div class="col-4">
+      <div class="result">
+        <p>${this.result}</p>
+      </div>
     </div>
   </div>
 

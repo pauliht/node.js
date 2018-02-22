@@ -5,14 +5,20 @@ class Form extends Base{
 		this.render('main .container');
 	}
 
+
 	click(){
+		let bookAuthor = $('#filter-author').val();
 		$.ajax({
 			type: 'GET',
-			url: '/books/author/astrid',
+			url: `/books/author/${bookAuthor}`,
 			dataType: 'json',
 			success: (books) => {
 				// render books
-				console.log('kjhgf', books)
+
+				for (let book of books) {
+					$(.result).append(bookAuthor);
+				}
+
 			}
 		});
 	}
